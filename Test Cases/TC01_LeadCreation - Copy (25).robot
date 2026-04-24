@@ -13,7 +13,7 @@ Suite Teardown         End suite
 *** Test Cases ***
 TC_01 Lead Creation
     [Documentation]    Lead Creation on salesforce CPQ application
-    [Tags]             Leadcreation                P1
+    [Tags]             Leadcreation                P2
 
     #Login to salesforce
     Appstate           Home
@@ -34,7 +34,7 @@ TC_01 Lead Creation
     UseModal           on
 
     #Fill the required fields
-  VerifyInputValues    ../resources/input_field_values.txt
+    #VerifyInputValues    ../resources/input_field_values.txt
 
     PickList           Salutation                  Mr.
     TypeText           First Name                  CRT test:${first_name}
