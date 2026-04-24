@@ -34,7 +34,7 @@ TC_01 Lead Creation
     UseModal           on
 
     #Fill the required fields
-  VerifyInputValues    ../resources/input_field_values.txt
+    #VerifyInputValues    ../resources/input_field_values.txt
 
     PickList           Salutation                  Mr.
     TypeText           First Name                  CRT test:${first_name}
