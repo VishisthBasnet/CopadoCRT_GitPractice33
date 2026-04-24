@@ -11,7 +11,7 @@ Suite Teardown         End suite
 
 
 *** Test Cases ***
-TC_01 Lead Creation
+TC_01 Document Reading 
     [Documentation]    Lead Creation on salesforce CPQ application
     [Tags]             Leadcreation                P1
 
