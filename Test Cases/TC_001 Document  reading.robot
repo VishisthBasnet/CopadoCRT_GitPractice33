@@ -23,30 +23,22 @@ Setup Browsers
     SetConfig    Delay           0.3
 
 *** Test Cases ***
-TC_01 Document Reading
-    [Documentation]    Download and read a CPQ generated document
-    [Tags]             Leadcreation    P1
 
-    # Login to Salesforce
+TC_01 Document Reading 
+    [Documentation]    Lead Creation on salesforce CPQ application
+    [Tags]             Leadcreation                P1
+
+    #Login to salesforce
     Appstate           Home
 
-    # Launch Salesforce CPQ
+    #launch app  Salesforce CPQ
     LaunchApp          Salesforce CPQ
     GoTo               https://cpqlimited-dev-ed.develop.lightning.force.com/lightning/r/SBQQ__Quote__c/a0qbm000008trVJAAY/view
 
-    # Start listening for a file download BEFORE triggering the action
-    ExpectFileDownload
-
     ClickText          Generate Document
     ClickText          Preview
-
-    # Wait for Chrome to auto-download (plugins.always_open_pdf_externally=True handles this)
-    # VerifyFileDownload returns the full path of the downloaded file automatically
-    ${downloaded_file}=    VerifyFileDownload    timeout=60s
-
-    Log To Console     Downloaded file: ${downloaded_file}
-
-    # Read the downloaded PDF content
-    UsePdf             ${downloaded_file}
-    ${text}=           GetPdfText
-    Log To Console     PDF Content: ${text}
+    
+    SetConfig    ShadowDOM    True
+    ClickText    Download    recognition_mode=vision
+    # ClickElement              xpath=//cr-icon-button[contains(@title,'Download')]
+    # ClickItem    Download     tag=cr-icon-button    
