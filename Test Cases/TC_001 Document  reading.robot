@@ -5,6 +5,7 @@ Resource               ../resources/variable.robot
 Library                DateTime
 Library                String
 Library                QForce
+Library                QVision
 Library                FakerLibrary
 Suite Setup            Setup Browsers
 Suite Teardown         End suite
@@ -21,7 +22,7 @@ Setup Browsers
     SetConfig    LineBreak       ${EMPTY}
     SetConfig    DefaultTimeout  45s
     SetConfig    Delay           0.3
-
+    Set Library Search Order                          QForce    QWeb
 *** Test Cases ***
 
 TC_01 Document Reading 
@@ -39,6 +40,7 @@ TC_01 Document Reading
     ClickText          Preview
     
     SetConfig    ShadowDOM    True
-    ClickText    Download    recognition_mode=vision
+    QVision.ClickText          Download 
+    Qvision.ClickText    Download    recognition_mode=vision
     # ClickElement              xpath=//cr-icon-button[contains(@title,'Download')]
     # ClickItem    Download     tag=cr-icon-button    
