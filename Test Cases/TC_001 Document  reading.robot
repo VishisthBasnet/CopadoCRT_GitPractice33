@@ -11,7 +11,7 @@ Suite Setup            Setup Browsers
 Suite Teardown         End suite
 
 *** Variables ***
-${DOWNLOAD_DIR}        %{HOME}${/}Downloads
+${DOWNLOAD_DIR}         ${CURDIR}${/}..${/}Downloads${/}
 
 *** Keywords ***
 Setup Browsers
