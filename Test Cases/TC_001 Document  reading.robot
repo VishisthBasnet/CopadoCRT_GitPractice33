@@ -23,6 +23,15 @@ Setup Browsers
     SetConfig    DefaultTimeout  45s
     SetConfig    Delay           0.3
     Set Library Search Order                          QForce    QWeb
+
+Download PDF via JavaScript
+    # Extract the PDF URL from the embedded viewer's src attribute
+    ${pdf_url}=    GetAttribute    //iframe[contains(@src,'.pdf')]    src
+    # Navigate to the URL directly to trigger download
+    ExpectFileDownload
+    GoTo    ${pdf_url}
+    VerifyFileDownload    timeout=30s
+
 *** Test Cases ***
 
 TC_01 Document Reading 
@@ -38,6 +47,8 @@ TC_01 Document Reading
 
     ClickText          Generate Document
     ClickText          Preview
+
+    Download PDF via JavaScript
     
     SetConfig    ShadowDOM    True
     QVision.ClickText          Download 
