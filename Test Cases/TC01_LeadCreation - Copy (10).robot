@@ -43,7 +43,7 @@ TC_01 Lead Creation
     TypeText           Phone                       ${phone}
     TypeText           Email                       ${email}
     ClickText          Save                        partial_match=False
-    VerifyText         Review the following fields
+    VerifyText        Description Information
     TypeText           *Company                    CRT test:${company} Record
     ClickText          Save                        partial_match=False
     UseModal           off
